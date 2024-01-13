@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+
+  <% if (courses.length) { %>
+    <% courses.forEach(function(c) { %>
+      <section id="course-show-page">
+        <img src="<%= c.image %>">
+        <div>
+          <p>Holes: <strong>
+              <%= c.holeCount %>
+            </strong>
+          </p>
+        </div>
+        <div>
+          <p>Type: <strong>
+              <%= c.courseType %>
+            </strong>
+          </p>
+        </div>
+        <div>
+          <p>Rating: <strong>Rating Code HERE</strong>
+          </p>
+        </div>
+        <div>
+          <h3>
+            <%= c.name %>
+          </h3>
+        </div>
+        <div>
+          <p>location: <strong>
+              <%= c.location %>
+            </strong>
+          </p>
+        </div>
+      </section>
+      <% }) %>
+        <% } else { %>
+          <h3>No Courses Contributed</h3>
+          <% } %>
+            <%- include('../partials/footer') %>
