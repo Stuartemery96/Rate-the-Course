@@ -53,7 +53,7 @@
           <% let total=0 %>
             <% course.reviews.forEach(function(r) { %>
               <% total +=r.overallRating %>
-                <tr>
+                <tr class="review-content">
                   <td class="review-user"><img src="<%= r.userAvatar %>" alt="avatar"
                       referrerpolicy="no-referrer">&nbsp;<%= r.userName %>
                   </td>
@@ -91,6 +91,8 @@
 
   <% if (user) { %>
     <form action="/courses/<%= course._id %>/reviews" method="POST">
+      <label>Review:</label>
+      <textarea name="content"></textarea><br>
       <label>Overall Rating:</label>
       <select name="overallRating">
         <option value="1">1</option>
@@ -115,8 +117,6 @@
         <option value="4">4</option>
         <option value="5" selected>5</option>
       </select><br>
-      <label>Review:</label>
-      <textarea name="content"></textarea><br>
       <label>Image URL:</label>
       <input type="text" name="image"><br>
       <button type="submit">Add Review</button>
