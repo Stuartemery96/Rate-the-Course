@@ -13,5 +13,7 @@ router.get('/all', ensureLoggedIn, courseCtrl.allCourses);
 router.get('/new', ensureLoggedIn, courseCtrl.new);
 // post /courses ensureLoggedIn (create)
 router.post('/', ensureLoggedIn, courseCtrl.create);
+// get /courses/:id ensureLoggedIn (show)
+router.get('/:id', ensureLoggedIn, courseCtrl.show)
 
 module.exports = router;

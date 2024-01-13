@@ -5,6 +5,7 @@ module.exports = {
   allCourses,
   new: newCourse,
   create,
+  show,
 }
 
 async function index(req, res) {
@@ -35,5 +36,10 @@ async function create(req, res) {
     console.log(err);
     res.render('courses/new', { errorMsg: err.message });
   }
+}
+
+async function show(req, res) {
+  const course = await Course.findById(req.params.id).populate('reviews');
+  res.render('courses/show', { title: 'Course Reviews', course })
 }
 

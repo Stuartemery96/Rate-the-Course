@@ -20,7 +20,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/courses',
+    successRedirect: '/courses/all',
     // change in your app to whats best to your page. ("landing" page)
     failureRedirect: '/'
   }
