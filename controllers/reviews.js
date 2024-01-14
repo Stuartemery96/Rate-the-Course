@@ -30,5 +30,5 @@ async function show(req, res) {
   console.log(course);
   const reviewSubdoc = course.reviews.id(req.params.reviewId)
   console.log('hello')
-  res.render('reviews/show', { title: 'REVIEW DETAILS', review: reviewSubdoc });
+  res.render('reviews/show', { title: 'REVIEW DETAILS', review: reviewSubdoc, course });
 }

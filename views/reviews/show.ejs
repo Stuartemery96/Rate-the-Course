@@ -1,7 +1,56 @@
 <%- include('../partials/header') %>
 
-  <h2>
-    <%= review.content %>
-  </h2>
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+          <th>Review</th>
+          <th>Overall Rating</th>
+          <th>Course Difficulty</th>
+          <th>Overall Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="review-content">
+          <td class="review-user"><img src="<%= review.userAvatar %>" alt="avatar" referrerpolicy="no-referrer">&nbsp;
+            <%= review.userName %>
+          </td>
+          <td>
+            <%= review.createdAt.toLocaleDateString() %>
+          </td>
+          <td>
+            <%= review.content %>
+          </td>
+          <td>
+            <%= review.overallRating %>
+          </td>
+          <td>
+            <%= review.condition %>
+          </td>
+          <td>
+            <%= review.difficulty %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="show-review-image">
+      <img src="<%= review.image %>">
+    </div>
+  </section>
 
+  <section>
+    <h3>Comments</h3>
+    <% if (review.comments.length) { %>
+      <% review.comments.forEach(function(c) { %>
+        <div>
+          <%= review.comments %>
+        </div>
+        <div></div>
+        <% }) %>
+          <% } else { %>
+            <p><strong>No Comments</strong></p>
+            <% } %>
+  </section>
   <%- include('../partials/footer') %>

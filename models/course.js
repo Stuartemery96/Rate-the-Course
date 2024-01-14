@@ -1,6 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  content: {
+    type: String,
+  }
+});
+
 const reviewSchema = new Schema({
   content: {
     type: String,
@@ -32,6 +43,7 @@ const reviewSchema = new Schema({
     ref: 'User',
     required: true
   },
+  comments: [commentSchema],
   userName: String,
   userAvatar: String,
 }, {
