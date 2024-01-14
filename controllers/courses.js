@@ -15,7 +15,7 @@ async function index(req, res) {
 
 async function allCourses(req, res) {
   const courses = await Course.find({});
-  res.render('courses/all', { title: 'MY COURSES', courses });
+  res.render('courses/all', { title: 'COURSES', courses });
 }
 
 function newCourse(req, res) {
@@ -39,7 +39,7 @@ async function create(req, res) {
 }
 
 async function show(req, res) {
-  const course = await Course.findById(req.params.id).populate('reviews');
+  const course = await Course.findById(req.params.id);
   res.render('courses/show', { title: 'Course Reviews', course })
 }
 

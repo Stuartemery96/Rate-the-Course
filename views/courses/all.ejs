@@ -2,8 +2,8 @@
 
   <% if (courses.length) { %>
     <% courses.forEach(function(c) { %>
-      <a href="/courses/<%= c._id %>">
-        <section id="courses-home-page">
+      <a class="more-details" href="/courses/<%= c._id %>">
+        <section class="course-info" id="courses-home-page">
           <img src="<%= c.image %>">
           <div>
             <p>Holes: <strong>
@@ -21,12 +21,10 @@
             <p>Rating: <strong>Rating Code HERE</strong>
             </p>
           </div>
-          <div>
-            <h3>
-              <%= c.name %>
-            </h3>
-          </div>
-          <div>
+          <h2>
+            <%= c.name %>
+          </h2>
+          <div id="location">
             <p>location: <strong>
                 <%= c.location %>
               </strong>
