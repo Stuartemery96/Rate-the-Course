@@ -40,6 +40,19 @@ async function create(req, res) {
 
 async function show(req, res) {
   const course = await Course.findById(req.params.id);
-  res.render('courses/show', { title: 'Course Reviews', course })
+  let total1 = 0, total2 = 0, total3 = 0;
+  course.reviews.forEach(function (r) {
+    total1 += r.overallRating
+  });
+  course.reviews.forEach(function (r) {
+    total2 += r.difficulty
+  });
+  course.reviews.forEach(function (r) {
+    total3 += r.condition
+  });
+  let rating = (total1 / course.reviews.length).toFixed(1);
+  let difficulty = (total2 / course.reviews.length).toFixed(1);
+  let condition = (total3 / course.reviews.length).toFixed(1);
+  res.render('courses/show', { title: 'Course Reviews', course, rating, difficulty, condition })
 }
 
