@@ -45,12 +45,19 @@
     <% if (review.comments.length) { %>
       <% review.comments.forEach(function(c) { %>
         <div>
-          <%= review.comments %>
+          <%= c.content %>
         </div>
         <div></div>
         <% }) %>
           <% } else { %>
             <p><strong>No Comments</strong></p>
             <% } %>
+  </section>
+
+  <section>
+    <form action="/courses/<%= course._id %>/reviews/<%= review._id %>/comments" method="POST"><textarea
+        name="content"></textarea>
+      <button type="submit">Add Comment</button>
+    </form>
   </section>
   <%- include('../partials/footer') %>

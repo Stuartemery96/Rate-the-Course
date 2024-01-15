@@ -27,8 +27,6 @@ async function create(req, res) {
 
 async function show(req, res) {
   const course = await Course.findById(req.params.id);
-  console.log(course);
-  const reviewSubdoc = course.reviews.id(req.params.reviewId)
-  console.log('hello')
+  const reviewSubdoc = course.reviews.id(req.params.reviewId);
   res.render('reviews/show', { title: 'REVIEW DETAILS', review: reviewSubdoc, course });
 }
