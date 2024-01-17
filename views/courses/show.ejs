@@ -3,43 +3,56 @@
   <h1>
     <%= course.name %>
   </h1>
-  <img src="<%= course.image %>">
-  <div>
-    <p>Length: <strong>
-        <%= course.length %>
-      </strong></p>
-  </div>
-  <div>
-    <p>Rating: <strong>
-        <%= rating %>
-      </strong>
-    </p>
-  </div>
-  <div>
-    <p>Holes: <strong>
-        <%= course.holeCount %>
-      </strong>
-    </p>
-  </div>
-  <div>
-    <p>Difficulty: <strong>
-        <%= difficulty %>
-      </strong></p>
-  </div>
-  <div>
-    <p>Condition: <strong>
-        <%= condition %>
-      </strong></p>
-  </div>
-  <div>
-    <p>Type: <strong>
-        <%= course.courseType %>
-      </strong>
-    </p>
-  </div>
+  <section class="course-details">
+    <img src="<%= course.image %>">
+    <div>
+      <p>Length: <strong>
+          <%= course.length %>
+        </strong></p>
+    </div>
+    <div>
+      <p>Rating: <strong>
+          <% if (course.reviews.length) { %>
+            <%= rating %>
+              <% } else { %>
+                <p></p>
+                <% } %>
+        </strong>
+      </p>
+    </div>
+    <div>
+      <p>Holes: <strong>
+          <%= course.holeCount %>
+        </strong>
+      </p>
+    </div>
+    <div>
+      <p>Difficulty: <strong>
+          <% if (course.reviews.length) { %>
+            <%= difficulty %>
+              <% } else { %>
+                <p></p>
+                <% } %>
+        </strong></p>
+    </div>
+    <div>
+      <p>Condition: <strong>
+          <% if (course.reviews.length) { %>
+            <%= condition %>
+              <% } else { %>
+                <p></p>
+                <% } %>
+        </strong></p>
+    </div>
+    <div>
+      <p>Type: <strong>
+          <%= course.courseType %>
+        </strong>
+      </p>
+    </div>
+  </section>
 
   <section>
-    <br><br>
     <% if (course.reviews.length) { %>
       <table>
         <thead>
@@ -78,7 +91,7 @@
                 <%= r.condition %>
               </td>
               <td>
-                <% if (user?._id.equals(r.user)) {%>
+                <% if (user && r.user.equals(user._id)) { %>
                   <a href="/courses/<%= course._id %>/reviews/<%= r._id %>/edit">Edit</a> | <form
                     action="/reviews/<%= r._id %>?_method=DELETE" method="POST"><button type="submit">Delete</button>
                   </form>

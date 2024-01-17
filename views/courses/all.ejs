@@ -6,8 +6,8 @@
         <% c.reviews.forEach(function(r) { %>
           <% total +=r.overallRating %>
             <% }) %>
-              <a class="more-details" href="/courses/<%= c._id %>">
-                <section class="course-info" id="courses-home-page">
+              <section class="course-info" id="courses-home-page">
+                <a class="more-details" href="/courses/<%= c._id %>">
                   <img src="<%= c.image %>">
                   <div>
                     <p>Holes: <strong>
@@ -23,7 +23,11 @@
                   </div>
                   <div>
                     <p>Rating: <strong>
-                        <%= (total / c.reviews.length).toFixed(1) %>
+                        <% if (c.reviews.length) { %>
+                          <%= (total / c.reviews.length).toFixed(1) %>
+                            <% } else { %>
+                              <p></p>
+                              <% } %>
                       </strong>
                     </p>
                   </div>
@@ -36,8 +40,8 @@
                       </strong>
                     </p>
                   </div>
-                </section>
-              </a>
+                </a>
+              </section>
               <% }) %>
                 <% } else { %>
                   <h3>No Courses Contributed</h3>

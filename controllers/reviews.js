@@ -41,7 +41,7 @@ async function edit(req, res) {
   });
   const review = course.reviews.id(req.params.reviewId)
 
-  res.render('reviews/edit', { title: 'EDIT REVIEW', course, review })
+  res.render('reviews/edit', { title: 'EDIT REVIEW', course, review });
 }
 
 async function update(req, res) {

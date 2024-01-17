@@ -52,7 +52,13 @@
             <%- c.content.replaceAll('\n', '<br>' ) %>
           </p>
         </div>
-        <div></div>
+        <div>
+          <% if (user && c.user.equals(user._id)) { %>
+            <a href="/reviews/<%= review._id %>/comments/<%= c._id %>/edit">Edit</a> |
+            <form action="/reviews/<%= review._id %>/comments/<%= c._id %>?_method=DELETE" method="POST"><button
+                type="submit">Delete</button></form>
+            <% } %>
+        </div>
         <% }) %>
           <% } else { %>
             <p><strong>No Comments</strong></p>
@@ -60,7 +66,8 @@
   </section><br>
 
   <section class="comments-form">
-    <form action="reviews/<%= review._id %>/comments" method="POST"><textarea name="content"></textarea>
+    <form action="/reviews/<%= review._id %>/comments" method="POST">
+      <textarea name="content"></textarea>
       <button type="submit">Add Comment</button>
     </form>
   </section>

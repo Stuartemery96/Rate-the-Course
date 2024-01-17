@@ -2,9 +2,9 @@
 
   <form id="new-form" action="/courses" method="POST">
     <label>Course Name:</label>
-    <input type="text" name="name"><br>
+    <input type="text" name="name" required><br>
     <label>Course Length:</label>
-    <input type="number" name="length"><br>
+    <input type="number" name="length" required><br>
     <label>Hole Count:</label>
     <select name="holeCount">
       <option value="9">9</option>
@@ -16,8 +16,8 @@
       <option value="Private">Private</option>
     </select><br>
     <label>Location:</label>
-    <input type="text" name="location" placeholder="City, ST"><br>
-    <label>Image URL</label>
+    <input type="text" name="location" placeholder="City, ST" required><br>
+    <label>Image URL:</label>
     <input type="text" name="image"><br>
     <button type="submit">Add Course</button>
   </form>

@@ -2,39 +2,46 @@
 
   <% if (courses.length) { %>
     <% courses.forEach(function(c) { %>
-      <section class="course-info" id="course-show-page">
-        <img src="<%= c.image %>">
-        <div>
-          <p>Holes: <strong>
-              <%= c.holeCount %>
-            </strong>
-          </p>
-        </div>
-        <div>
-          <p>Type: <strong>
-              <%= c.courseType %>
-            </strong>
-          </p>
-        </div>
-        <div>
-          <p>Rating: <strong>
-              rating
-            </strong>
-          </p>
-        </div>
-        </div>
-        <h2>
-          <%= c.name %>
-        </h2>
-        <div id="location">
-          <p>location: <strong>
-              <%= c.location %>
-            </strong>
-          </p>
-        </div>
-      </section>
-      <% }) %>
-        <% } else { %>
-          <h3>No Courses Contributed</h3>
-          <% } %>
-            <%- include('../partials/footer') %>
+      <% let total=0 %>
+        <% c.reviews.forEach(function(r) { %>
+          <% total +=r.overallRating %>
+            <% }) %>
+              <section class="course-info" id="course-show-page">
+                <img src="<%= c.image %>">
+                <div>
+                  <p>Holes: <strong>
+                      <%= c.holeCount %>
+                    </strong>
+                  </p>
+                </div>
+                <div>
+                  <p>Type: <strong>
+                      <%= c.courseType %>
+                    </strong>
+                  </p>
+                </div>
+                <div>
+                  <p>Rating: <strong>
+                      <% if (c.reviews.length) { %>
+                        <%= (total / c.reviews.length).toFixed(1) %>
+                          <% } else { %>
+                            <p></p>
+                            <% } %>
+                    </strong>
+                  </p>
+                </div>
+                <h2>
+                  <%= c.name %>
+                </h2>
+                <div id="location">
+                  <p>location: <strong>
+                      <%= c.location %>
+                    </strong>
+                  </p>
+                </div>
+              </section>
+              <% }) %>
+                <% } else { %>
+                  <h3>No Courses Contributed</h3>
+                  <% } %>
+                    <%- include('../partials/footer') %>
