@@ -15,6 +15,10 @@ body>nav {
   padding: 0 20px 0 30px;
 }
 
+nav>h1 {
+  margin-right: auto;
+}
+
 nav>img {
   width: 34px;
   object-fit: contain;
@@ -46,6 +50,21 @@ table thead th {
 table td {
   padding: 10px;
   text-align: center;
+}
+
+.homepage {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 5vmax 5vmax auto;
+}
+
+.homepage h3,
+p {
+  justify-self: center;
+}
+
+.homepage img {
+  width: 100%;
 }
 
 .login {
