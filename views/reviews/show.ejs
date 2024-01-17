@@ -21,7 +21,7 @@
             <%= review.createdAt.toLocaleDateString() %>
           </td>
           <td>
-            <%= review.content %>
+            <%- review.content.replaceAll('\n', '<br>' ) %>
           </td>
           <td>
             <%= review.overallRating %>
@@ -40,23 +40,27 @@
     </div>
   </section>
 
-  <section>
+  <section class="comments-show">
     <h3>Comments</h3>
     <% if (review.comments.length) { %>
       <% review.comments.forEach(function(c) { %>
+        <div class="comment-user"><img src="<%= review.userAvatar %>" alt="avatar" referrerpolicy="no-referrer">&nbsp;
+          <%= review.userName %>
+        </div>
         <div>
-          <%= c.content %>
+          <p>
+            <%- c.content.replaceAll('\n', '<br>' ) %>
+          </p>
         </div>
         <div></div>
         <% }) %>
           <% } else { %>
             <p><strong>No Comments</strong></p>
             <% } %>
-  </section>
+  </section><br>
 
-  <section>
-    <form action="/courses/<%= course._id %>/reviews/<%= review._id %>/comments" method="POST"><textarea
-        name="content"></textarea>
+  <section class="comments-form">
+    <form action="reviews/<%= review._id %>/comments" method="POST"><textarea name="content"></textarea>
       <button type="submit">Add Comment</button>
     </form>
   </section>

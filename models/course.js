@@ -5,7 +5,6 @@ const commentSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    required: true
   },
   content: {
     type: String,
@@ -15,7 +14,6 @@ const commentSchema = new Schema({
 const reviewSchema = new Schema({
   content: {
     type: String,
-    required: true
   },
   overallRating: {
     type: Number,
@@ -41,7 +39,6 @@ const reviewSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    required: true
   },
   comments: [commentSchema],
   userName: String,

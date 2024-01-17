@@ -118,3 +118,7 @@ table td {
   width: 10rem;
   margin-left: auto;
 }
+
+a:hover {
+  cursor: pointer;
+}

@@ -51,6 +51,7 @@
             <th>Course Difficulty</th>
             <th>Overall Condition</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <% course.reviews.forEach(function(r) { %>
@@ -71,16 +72,25 @@
                 <%= r.overallRating %>
               </td>
               <td>
+                <%= r.difficulty %>
+              </td>
+              <td>
                 <%= r.condition %>
               </td>
               <td>
-                <%= r.difficulty %>
+                <% if (user?._id.equals(r.user)) {%>
+                  <a href="/courses/<%= course._id %>/reviews/<%= r._id %>/edit">Edit</a> | <form
+                    action="/reviews/<%= r._id %>?_method=DELETE" method="POST"><button type="submit">Delete</button>
+                  </form>
+                  <% } %>
+              </td>
+              <td>
+
               </td>
             </tr>
             <% }); %>
 
           </tbody>
-          </a>
       </table>
       <% } else { %>
         <h5>No Reviews Yet</h5>
