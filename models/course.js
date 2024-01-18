@@ -78,7 +78,7 @@ const courseSchema = new Schema({
   },
   image: {
     type: String,
-    default: 'https://replit.com/@stuemery96/20-isPrime#challenge.js',
+    default: 'https://i.imgur.com/SeLb3aO.png',
   },
   reviews: [reviewSchema],
 }, {

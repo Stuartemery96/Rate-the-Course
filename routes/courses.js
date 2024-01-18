@@ -14,6 +14,10 @@ router.get('/new', ensureLoggedIn, courseCtrl.new);
 // post /courses ensureLoggedIn (create)
 router.post('/', ensureLoggedIn, courseCtrl.create);
 // get /courses/:id ensureLoggedIn (show)
-router.get('/:id', ensureLoggedIn, courseCtrl.show)
+router.get('/:id', ensureLoggedIn, courseCtrl.show);
+// get /:id/edit (edit)
+router.get('/:id/edit', ensureLoggedIn, courseCtrl.edit);
+// put /:id (update)
+router.put('/:id', ensureLoggedIn, courseCtrl.update);
 
 module.exports = router;

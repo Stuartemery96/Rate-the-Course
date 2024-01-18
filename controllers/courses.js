@@ -6,6 +6,8 @@ module.exports = {
   new: newCourse,
   create,
   show,
+  edit,
+  update
 }
 
 async function index(req, res) {
@@ -56,4 +58,22 @@ async function show(req, res) {
   res.render('courses/show', { title: 'Course Reviews', course, rating, difficulty, condition })
 }
 
+async function edit(req, res) {
+  const course = await Course.findById({ _id: req.params.id, user: req.user._id });
+  if (!course) return res.redirect('/courses/index');
+  res.render('courses/edit', { title: 'EDIT COURSE', course });
+}
 
+async function update(req, res) {
+  try {
+    const updatedCourse = await Course.findOneAndUpdate({
+      _id: req.params.id, user: req.user._id
+    },
+      req.body,
+      { new: true });
+    return res.redirect(`/courses/${updatedCourse._id}`);
+  } catch (err) {
+    console.log(err);
+    return res.redirect('/courses/index');
+  }
+}
