@@ -55,7 +55,7 @@ async function show(req, res) {
   let rating = (total1 / course.reviews.length).toFixed(1);
   let difficulty = (total2 / course.reviews.length).toFixed(1);
   let condition = (total3 / course.reviews.length).toFixed(1);
-  res.render('courses/show', { title: 'Course Reviews', course, rating, difficulty, condition })
+  res.render('courses/show', { title: 'COURSE REVIEWS', course, rating, difficulty, condition })
 }
 
 async function edit(req, res) {
