@@ -123,26 +123,35 @@ p {
   display: grid;
   grid-template-columns: repeat(3, 20vmax) auto;
   grid-template-rows: auto 5vmax 5vmax 5vmax;
+  justify-items: center;
 }
 
 .course-info .more-details img {
+  grid-column-start: 2;
   grid-column: span 3;
   width: 100%;
 }
 
-.course-info .more-details h2 {
-  grid-row: 3;
+
+.course-info .more-details #edit {
+  grid-column: 4;
   align-self: center;
 }
 
 .course-info .more-details #location {
-  grid-row: 4;
+  grid-column: 2;
+  grid-row: 3;
   margin-top: 0;
   align-content: flex-start;
 }
 
 .course-info .more-details #location p {
   margin-top: 0;
+}
+
+.course-info #edit {
+  width: 8%;
+  margin: auto;
 }
 
 .course-details {
