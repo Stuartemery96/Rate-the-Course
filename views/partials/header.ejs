@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="/images/favicon.ico" />
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <title>
     <%= title %>
@@ -17,14 +18,15 @@
       <%= title %>
     </h1>
     <% if (user) { %>
-      <a href="/courses/all">
+      <a href="/courses/all" <%- title==='COURSES' ? 'class="active"' : '' %>>
         HOME</a>
-      <a href="/courses">MY COURSES</a>
-      <a href="/courses/new">ADD COURSE</a>
+      <a href="/courses" <%- title==='MY COURSES' ? 'class="active"' : '' %>>MY COURSES</a>
+      <a href="/courses/new" <%- title==='ADD A COURSE' ? 'class="active"' : '' %>>ADD COURSE</a>
       <img class="user-img" src="<%= user.avatar %>" alt="avatar" referrerpolicy="no-referrer">
       <a href="/logout">LOG OUT</a>
       <% } else { %>
-        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <a href="/auth/google" class="login">LOG IN&nbsp;
+          <img src="https://i.imgur.com/FHjYyi0.png"></a>
         <% } %>
-  </nav>
+  </nav><br><br>
   <main>

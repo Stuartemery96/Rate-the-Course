@@ -7,8 +7,9 @@ A social app for golf lovers to explore courses and read about others experience
 # Technologies Used
 
 - MongoDB
-- EJS
+- Express
 - Node.js
+- EJS
 - CSS
 
 # Getting Started
