@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Rate the Course' });
+  res.render('index', { title: 'RATE THE COURSE' });
 });
 
 router.get('/auth/google', passport.authenticate(

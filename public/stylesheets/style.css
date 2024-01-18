@@ -82,13 +82,14 @@ table td {
   grid-template-rows: 5vmax 5vmax auto;
 }
 
-.homepage h3,
+.homepage h2,
 p {
   justify-self: center;
 }
 
 .homepage img {
-  width: 100%;
+  width: 95%;
+  justify-self: center;
 }
 
 .login {
