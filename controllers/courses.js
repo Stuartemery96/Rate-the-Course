@@ -14,7 +14,7 @@ async function index(req, res) {
 }
 
 async function allCourses(req, res) {
-  const courses = await Course.find({});
+  const courses = await Course.find({}).sort({ 'reviews.overallRating': 'desc' });
   res.render('courses/all', { title: 'COURSES', courses });
 }
 
@@ -31,7 +31,7 @@ async function create(req, res) {
   req.body.userAvatar = req.user.avatar;
   try {
     await Course.create(req.body)
-    res.redirect(`/courses`);
+    res.redirect('/courses');
   } catch (err) {
     console.log(err);
     res.render('courses/new', { errorMsg: err.message });
