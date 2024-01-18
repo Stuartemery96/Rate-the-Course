@@ -19,7 +19,27 @@
   <input type="text" name="location" placeholder="City, ST" required><br>
   <label>Image URL:</label>
   <input type="text" name="image"><br>
-  <button type="submit">Add Course</button>
+  <button id="play-btn" type="submit">Add Course</button>
 </form>
+
+<script>
+  const sounds = {
+    golf: 'https://cdn.freesound.org/previews/20/20428_50975-lq.mp3'
+  }
+
+  document.getElementById('play-btn').addEventListener('click', handlePlaySound);
+  const player = new Audio();
+
+  player.volume = .5;
+
+  function handlePlaySound() {
+    playSound('golf');
+  }
+
+  function playSound(name) {
+    player.src = sounds[name];
+    player.play();
+  }
+</script>
 
 <%- include('../partials/footer'); %>

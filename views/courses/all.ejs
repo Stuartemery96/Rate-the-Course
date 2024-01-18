@@ -1,5 +1,9 @@
 <%- include('../partials/header') %>
 
+<form action="" method="GET">
+  <input type="search" name="course" id="searchbar" value="<%= query %>">
+  <button type="submit">Search</button>
+</form>
 <% if (courses.length) { %>
 <% courses.forEach(function(c) { %>
 <% let total=0 %>

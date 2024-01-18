@@ -16,8 +16,9 @@ async function index(req, res) {
 }
 
 async function allCourses(req, res) {
-  const courses = await Course.find({}).sort({ 'reviews.overallRating': 'desc' });
-  res.render('courses/all', { title: 'COURSES', courses });
+  const query = req.query.course ? { name: new RegExp(req.query.course.replaceAll('+', ' '), 'i') } : {};
+  const courses = await Course.find(query).sort({ 'reviews.overallRating': 'desc' });
+  res.render('courses/all', { title: 'COURSES', courses, query: req.query.course });
 }
 
 function newCourse(req, res) {
