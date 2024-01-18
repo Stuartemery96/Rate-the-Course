@@ -189,7 +189,8 @@ p {
 }
 
 #new-form *,
-#new-review-form * {
+#new-review-form *,
+#comments-form * {
   font-size: 20px;
   padding: 5px;
   border-radius: 5px;
@@ -293,4 +294,9 @@ a:hover {
 
 #new-rvw-btn button:hover {
   background-color: green;
+}
+
+footer p {
+  font-size: 12px;
+  float: right;
 }

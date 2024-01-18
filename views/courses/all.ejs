@@ -1,50 +1,50 @@
 <%- include('../partials/header') %>
 
-  <% if (courses.length) { %>
-    <% courses.forEach(function(c) { %>
-      <% let total=0 %>
-        <% c.reviews.forEach(function(r) { %>
-          <% total +=r.overallRating %>
-            <% }) %>
-              <section class="course-info" id="courses-home-page">
-                <a class="more-details" href="/courses/<%= c._id %>">
-                  <img src="<%= c.image %>">
-                  <div></div>
-                  <div>
-                    <p>Holes: <strong>
-                        <%= c.holeCount %>
-                      </strong>
-                    </p>
-                  </div>
-                  <div>
-                    <p>Type: <strong>
-                        <%= c.courseType %>
-                      </strong>
-                    </p>
-                  </div>
-                  <div>
-                    <p>Rating: <strong>
-                        <% if (c.reviews.length) { %>
-                          <%= (total / c.reviews.length).toFixed(1) %>⭐️
-                            <% } else { %>
-                              <p></p>
-                              <% } %>
-                      </strong>
-                    </p>
-                  </div>
-                  <h2>
-                    <%= c.name %>
-                  </h2>
-                  <div id="location">
-                    <p>location: <strong>
-                        <%= c.location %>
-                      </strong>
-                    </p>
-                  </div>
-                </a>
-              </section>
-              <% }) %>
-                <% } else { %>
-                  <h3>No Courses Contributed</h3>
-                  <% } %>
-                    <%- include('../partials/footer') %>
+<% if (courses.length) { %>
+<% courses.forEach(function(c) { %>
+<% let total=0 %>
+<% c.reviews.forEach(function(r) { %>
+<% total +=r.overallRating %>
+<% }) %>
+<section class="course-info" id="courses-home-page">
+  <a class="more-details" href="/courses/<%= c._id %>">
+    <img src="<%= c.image %>">
+    <div></div>
+    <div>
+      <p>Holes: <strong>
+          <%= c.holeCount %>
+        </strong>
+      </p>
+    </div>
+    <div>
+      <p>Type: <strong>
+          <%= c.courseType %>
+        </strong>
+      </p>
+    </div>
+    <div>
+      <p>Rating: <strong>
+          <% if (c.reviews.length) { %>
+          <%= (total / c.reviews.length).toFixed(1) %>⭐️
+          <% } else { %>
+          <p></p>
+          <% } %>
+        </strong>
+      </p>
+    </div>
+    <h2>
+      <%= c.name %>
+    </h2>
+    <div id="location">
+      <p>location: <strong>
+          <%= c.location %>
+        </strong>
+      </p>
+    </div>
+  </a>
+</section>
+<% }) %>
+<% } else { %>
+<h3>No Courses Contributed</h3>
+<% } %>
+<%- include('../partials/footer') %>

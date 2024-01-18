@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
-  <form id="comments-form" action="/reviews/<%= review._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
-    <textarea name="content"><%= comment.content %></textarea>
-    <button type="submit">Update Comment</button>
-  </form>
-  <%- include('../partials/footer') %>
+<form id="comments-form" action="/reviews/<%= review._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+  <textarea name="content"><%= comment.content %></textarea>
+  <button type="submit">Update Comment</button>
+</form>
+<%- include('../partials/footer') %>

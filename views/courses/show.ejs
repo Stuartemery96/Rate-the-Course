@@ -1,117 +1,116 @@
 <%- include('../partials/header') %>
 
-  <h1>
-    <%= course.name %>
-  </h1>
-  <section class="course-details">
-    <img src="<%= course.image %>">
-    <div>
-      <p>Length: <br><strong>
-          <%= course.length %> yds
-        </strong></p>
-    </div>
-    <div>
-      <p>Rating: <br><strong>
-          <% if (course.reviews.length) { %>
-            <%= rating %>⭐️
-              <% } else { %>
-                <p></p>
-                <% } %>
-        </strong>
-      </p>
-    </div>
-    <div>
-      <p>Holes: <br><strong>
-          <%= course.holeCount %>
-        </strong>
-      </p>
-    </div>
-    <div>
-      <p>Difficulty: <br><strong>
-          <% if (course.reviews.length) { %>
-            <%= difficulty %>⭐️
-              <% } else { %>
-                <p></p>
-                <% } %>
-        </strong></p>
-    </div>
-    <div>
-      <p>Condition: <br><strong>
-          <% if (course.reviews.length) { %>
-            <%= condition %>⭐️
-              <% } else { %>
-                <p></p>
-                <% } %>
-        </strong></p>
-    </div>
-    <div>
-      <p>Type: <br><strong>
-          <%= course.courseType %>
-        </strong>
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <% if (course.reviews.length) { %>
-      <table>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Date</th>
-            <th>Review</th>
-            <th>Overall Rating</th>
-            <th>Course Difficulty</th>
-            <th>Overall Condition</th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <% course.reviews.forEach(function(r) { %>
-          <tbody>
-            <tr class="review-content">
-              <td class="review-user"><img src="<%= r.userAvatar %>" alt="avatar" referrerpolicy="no-referrer">&nbsp;<%=
-                  r.userName %>
-              </td>
-              <td>
-                <%= r.createdAt.toLocaleDateString() %>
-              </td>
-              <td>
-                <%= r.content %>
-              </td>
-              <td>
-                <%= r.overallRating %>⭐️
-              </td>
-              <td>
-                <%= r.difficulty %>⭐️
-              </td>
-              <td>
-                <%= r.condition %>⭐️
-              </td>
-              <td class="v-e-d">
-                <a href="/courses/<%= course._id %>/reviews/<%= r._id %>">View</a>
-              </td>
-              <td class="v-e-d">
-                <% if (user && r.user.equals(user._id)) { %>
-                  <a style='display:inline;' href="/courses/<%= course._id %>/reviews/<%= r._id %>/edit">Edit</a>
-                  <% } %>
-              </td>
-              <td class="v-e-d">
-                <% if (user && r.user.equals(user._id)) { %>
-                  <form style='display:inline;' action="/reviews/<%= r._id %>?_method=DELETE" method="POST"><button
-                      type="submit">Delete</button>
-                    <% } %>
-                  </form>
-              </td>
-            </tr>
-            <% }); %>
-
-          </tbody>
-      </table>
-      <% } else { %>
-        <h5>No Reviews Yet</h5>
+<h1>
+  <%= course.name %>
+</h1>
+<section class="course-details">
+  <img src="<%= course.image %>">
+  <div>
+    <p>Length: <br><strong>
+        <%= course.length %> yds
+      </strong></p>
+  </div>
+  <div>
+    <p>Rating: <br><strong>
+        <% if (course.reviews.length) { %>
+        <%= rating %>⭐️
+        <% } else { %>
+        <p></p>
         <% } %>
-  </section>
-  <a id="new-rvw-btn" href="/courses/<%= course._id %>/reviews/new"><button type="button">New Review</button></a>
-  <%- include('../partials/footer') %>
+      </strong>
+    </p>
+  </div>
+  <div>
+    <p>Holes: <br><strong>
+        <%= course.holeCount %>
+      </strong>
+    </p>
+  </div>
+  <div>
+    <p>Difficulty: <br><strong>
+        <% if (course.reviews.length) { %>
+        <%= difficulty %>⭐️
+        <% } else { %>
+        <p></p>
+        <% } %>
+      </strong></p>
+  </div>
+  <div>
+    <p>Condition: <br><strong>
+        <% if (course.reviews.length) { %>
+        <%= condition %>⭐️
+        <% } else { %>
+        <p></p>
+        <% } %>
+      </strong></p>
+  </div>
+  <div>
+    <p>Type: <br><strong>
+        <%= course.courseType %>
+      </strong>
+    </p>
+  </div>
+</section>
+
+<section>
+  <% if (course.reviews.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Review</th>
+        <th>Overall Rating</th>
+        <th>Course Difficulty</th>
+        <th>Overall Condition</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <% course.reviews.forEach(function(r) { %>
+    <tbody>
+      <tr class="review-content">
+        <td class="review-user"><img src="<%= r.userAvatar %>" alt="avatar" referrerpolicy="no-referrer">&nbsp;<%=
+                  r.userName %>
+        </td>
+        <td>
+          <%= r.createdAt.toLocaleDateString() %>
+        </td>
+        <td>
+          <%= r.content %>
+        </td>
+        <td>
+          <%= r.overallRating %>⭐️
+        </td>
+        <td>
+          <%= r.difficulty %>⭐️
+        </td>
+        <td>
+          <%= r.condition %>⭐️
+        </td>
+        <td class="v-e-d">
+          <a href="/courses/<%= course._id %>/reviews/<%= r._id %>">View</a>
+        </td>
+        <td class="v-e-d">
+          <% if (user && r.user.equals(user._id)) { %>
+          <a style='display:inline;' href="/courses/<%= course._id %>/reviews/<%= r._id %>/edit">Edit</a>
+          <% } %>
+        </td>
+        <td class="v-e-d">
+          <% if (user && r.user.equals(user._id)) { %>
+          <form style='display:inline;' action="/reviews/<%= r._id %>?_method=DELETE" method="POST"><button type="submit">Delete</button>
+            <% } %>
+          </form>
+        </td>
+      </tr>
+      <% }); %>
+
+    </tbody>
+  </table>
+  <% } else { %>
+  <h5>No Reviews Yet</h5>
+  <% } %>
+</section>
+<a id="new-rvw-btn" href="/courses/<%= course._id %>/reviews/new"><button type="button">New Review</button></a>
+<%- include('../partials/footer') %>

@@ -18,15 +18,15 @@
       <%= title %>
     </h1>
     <% if (user) { %>
-      <a href="/courses/all" <%- title==='COURSES' ? 'class="active"' : '' %>>
-        HOME</a>
-      <a href="/courses" <%- title==='MY COURSES' ? 'class="active"' : '' %>>MY COURSES</a>
-      <a href="/courses/new" <%- title==='ADD A COURSE' ? 'class="active"' : '' %>>ADD COURSE</a>
-      <img class="user-img" src="<%= user.avatar %>" alt="avatar" referrerpolicy="no-referrer">
-      <a href="/logout">LOG OUT</a>
-      <% } else { %>
-        <a href="/auth/google" class="login">LOG IN&nbsp;
-          <img src="https://i.imgur.com/FHjYyi0.png"></a>
-        <% } %>
+    <a href="/courses/all" <%- title==='COURSES' ? 'class="active"' : '' %>>
+      HOME</a>
+    <a href="/courses" <%- title==='MY COURSES' ? 'class="active"' : '' %>>MY COURSES</a>
+    <a href="/courses/new" <%- title==='ADD A COURSE' ? 'class="active"' : '' %>>ADD COURSE</a>
+    <img class="user-img" src="<%= user.avatar %>" alt="avatar" referrerpolicy="no-referrer">
+    <a href="/logout">LOG OUT</a>
+    <% } else { %>
+    <a href="/auth/google" class="login">LOG IN&nbsp;
+      <img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <% } %>
   </nav><br>
   <main>
