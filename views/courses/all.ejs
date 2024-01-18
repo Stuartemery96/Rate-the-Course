@@ -9,6 +9,7 @@
               <section class="course-info" id="courses-home-page">
                 <a class="more-details" href="/courses/<%= c._id %>">
                   <img src="<%= c.image %>">
+                  <div></div>
                   <div>
                     <p>Holes: <strong>
                         <%= c.holeCount %>
@@ -24,7 +25,7 @@
                   <div>
                     <p>Rating: <strong>
                         <% if (c.reviews.length) { %>
-                          <%= (total / c.reviews.length).toFixed(1) %>
+                          <%= (total / c.reviews.length).toFixed(1) %>⭐️
                             <% } else { %>
                               <p></p>
                               <% } %>

@@ -2,7 +2,7 @@
 A social app for golf lovers to explore courses and read about others experiences as well as inputting their own experiences.
 
 # Screenshot
-<img src="">
+<img src="https://i.imgur.com/JK823Yj.png">
 
 # Technologies Used
 

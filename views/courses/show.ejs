@@ -6,14 +6,14 @@
   <section class="course-details">
     <img src="<%= course.image %>">
     <div>
-      <p>Length: <strong>
-          <%= course.length %>
+      <p>Length: <br><strong>
+          <%= course.length %> yds
         </strong></p>
     </div>
     <div>
-      <p>Rating: <strong>
+      <p>Rating: <br><strong>
           <% if (course.reviews.length) { %>
-            <%= rating %>
+            <%= rating %>⭐️
               <% } else { %>
                 <p></p>
                 <% } %>
@@ -21,31 +21,31 @@
       </p>
     </div>
     <div>
-      <p>Holes: <strong>
+      <p>Holes: <br><strong>
           <%= course.holeCount %>
         </strong>
       </p>
     </div>
     <div>
-      <p>Difficulty: <strong>
+      <p>Difficulty: <br><strong>
           <% if (course.reviews.length) { %>
-            <%= difficulty %>
+            <%= difficulty %>⭐️
               <% } else { %>
                 <p></p>
                 <% } %>
         </strong></p>
     </div>
     <div>
-      <p>Condition: <strong>
+      <p>Condition: <br><strong>
           <% if (course.reviews.length) { %>
-            <%= condition %>
+            <%= condition %>⭐️
               <% } else { %>
                 <p></p>
                 <% } %>
         </strong></p>
     </div>
     <div>
-      <p>Type: <strong>
+      <p>Type: <br><strong>
           <%= course.courseType %>
         </strong>
       </p>
@@ -65,6 +65,7 @@
             <th>Overall Condition</th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <% course.reviews.forEach(function(r) { %>
@@ -77,28 +78,31 @@
                 <%= r.createdAt.toLocaleDateString() %>
               </td>
               <td>
-                <a href="/courses/<%= course._id %>/reviews/<%= r._id %>">
-                  <%= r.content %>
-                </a>
+                <%= r.content %>
               </td>
               <td>
-                <%= r.overallRating %>
+                <%= r.overallRating %>⭐️
               </td>
               <td>
-                <%= r.difficulty %>
+                <%= r.difficulty %>⭐️
               </td>
               <td>
-                <%= r.condition %>
+                <%= r.condition %>⭐️
               </td>
-              <td>
+              <td class="v-e-d">
+                <a href="/courses/<%= course._id %>/reviews/<%= r._id %>">View</a>
+              </td>
+              <td class="v-e-d">
                 <% if (user && r.user.equals(user._id)) { %>
-                  <a href="/courses/<%= course._id %>/reviews/<%= r._id %>/edit">Edit</a> | <form
-                    action="/reviews/<%= r._id %>?_method=DELETE" method="POST"><button type="submit">Delete</button>
-                  </form>
+                  <a style='display:inline;' href="/courses/<%= course._id %>/reviews/<%= r._id %>/edit">Edit</a>
                   <% } %>
               </td>
-              <td>
-
+              <td class="v-e-d">
+                <% if (user && r.user.equals(user._id)) { %>
+                  <form style='display:inline;' action="/reviews/<%= r._id %>?_method=DELETE" method="POST"><button
+                      type="submit">Delete</button>
+                    <% } %>
+                  </form>
               </td>
             </tr>
             <% }); %>
@@ -109,5 +113,5 @@
         <h5>No Reviews Yet</h5>
         <% } %>
   </section>
-  <a href="/courses/<%= course._id %>/reviews/new">New Review</a>
+  <a id="new-rvw-btn" href="/courses/<%= course._id %>/reviews/new"><button type="button">New Review</button></a>
   <%- include('../partials/footer') %>

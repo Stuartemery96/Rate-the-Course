@@ -15,7 +15,9 @@
       <tbody>
         <tr class="review-content">
           <td class="review-user"><img src="<%= review.userAvatar %>" alt="avatar" referrerpolicy="no-referrer">&nbsp;
-            <%= review.userName %>
+            <h3>
+              <%= review.userName %>
+            </h3>
           </td>
           <td>
             <%= review.createdAt.toLocaleDateString() %>
@@ -24,13 +26,13 @@
             <%- review.content.replaceAll('\n', '<br>' ) %>
           </td>
           <td>
-            <%= review.overallRating %>
+            <%= review.overallRating %>⭐️
           </td>
           <td>
-            <%= review.condition %>
+            <%= review.condition %>⭐️
           </td>
           <td>
-            <%= review.difficulty %>
+            <%= review.difficulty %>⭐️
           </td>
         </tr>
       </tbody>
@@ -38,35 +40,40 @@
     <div class="show-review-image">
       <img src="<%= review.image %>">
     </div>
-  </section>
+  </section><br><br>
 
+  <h2>Comments:</h2><br>
   <section class="comments-show">
-    <h3>Comments</h3>
     <% if (review.comments.length) { %>
       <% review.comments.forEach(function(c) { %>
-        <div class="comment-user"><img src="<%= review.userAvatar %>" alt="avatar" referrerpolicy="no-referrer">&nbsp;
-          <%= review.userName %>
+        <div class="comment-user"><img style="display: inline;" src="<%= review.userAvatar %>" alt="avatar"
+            referrerpolicy="no-referrer">
         </div>
-        <div>
+        <div id="user-name">
+          <h3 style="display: inline;">
+            <%= review.userName %>
+          </h3>
+        </div>
+        <div id="content">
           <p>
             <%- c.content.replaceAll('\n', '<br>' ) %>
           </p>
         </div>
-        <div>
+        <div class="v-e-d">
           <% if (user && c.user.equals(user._id)) { %>
             <a href="/reviews/<%= review._id %>/comments/<%= c._id %>/edit">Edit</a> |
             <form action="/reviews/<%= review._id %>/comments/<%= c._id %>?_method=DELETE" method="POST"><button
                 type="submit">Delete</button></form>
             <% } %>
-        </div>
+        </div>&nbsp;&nbsp;
         <% }) %>
           <% } else { %>
             <p><strong>No Comments</strong></p>
             <% } %>
-  </section><br>
+  </section><br><br>
 
-  <section class="comments-form">
-    <form action="/reviews/<%= review._id %>/comments" method="POST">
+  <section>
+    <form id="comments-form" action="/reviews/<%= review._id %>/comments" method="POST">
       <textarea name="content"></textarea>
       <button type="submit">Add Comment</button>
     </form>
