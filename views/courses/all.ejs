@@ -1,9 +1,10 @@
 <%- include('../partials/header') %>
 
-<form action="" method="GET">
-  <input type="search" name="course" id="searchbar" value="<%= query %>">
+<br>
+<form id="searchbar" action="" method="GET">
+  <input type="search" name="course" value="<%= query %>" placeholder="Search for a course">
   <button type="submit">Search</button>
-</form>
+</form><br>
 <% if (courses.length) { %>
 <% courses.forEach(function(c) { %>
 <% let total=0 %>
@@ -37,17 +38,17 @@
         </strong>
       </p>
     </div>
+    <h2>
+      <%= c.name %>
+    </h2>
     <div id="location">
-      <h2>
-        <%= c.name %>
-      </h2>
       <p>location: <strong>
           <%= c.location %>
         </strong>
       </p>
     </div>
   </a>
-</section>
+</section><br><br>
 <% }) %>
 <% } else { %>
 <h3>No Courses Contributed</h3>

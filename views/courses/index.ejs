@@ -33,20 +33,20 @@
         </strong>
       </p>
     </div>
+    <h2>
+      <%= c.name %>
+    </h2>
     <div id="location">
-      <h2>
-        <%= c.name %>
-      </h2>
       <p>location: <strong>
           <%= c.location %>
         </strong>
       </p>
     </div>
-  </a>
+  </a><br>
   <div id="edit">
     <a href="/courses/<%= c._id %>/edit"">Edit</a>
   </div>
-</section>
+</section><br><br>
 <% }) %>
 <% } else { %>
 <h3>No Courses Contributed</h3>
