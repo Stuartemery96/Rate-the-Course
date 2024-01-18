@@ -1,4 +1,5 @@
 <%- include('../partials/header') %>
+<br><br>
 <form id="comments-form" action="/reviews/<%= review._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
   <textarea name="content"><%= comment.content %></textarea>
   <button type="submit">Update Comment</button>

@@ -176,6 +176,7 @@ p {
 #new-form,
 #update-course-form,
 #new-review-form,
+#edit-review-form,
 #comments-form {
   display: grid;
   grid-gap: 10px;
@@ -186,6 +187,7 @@ p {
 #update-course-form select,
 #new-form input,
 #new-review-form select,
+#edit-review-form select,
 #new-form select,
 #comments-form button {
   grid-column-start: 2;
@@ -193,6 +195,7 @@ p {
 }
 
 #new-review-form label,
+#edit-review-form label,
 #update-course-form label,
 #new-form label,
 #comments-form textarea {
@@ -203,6 +206,7 @@ p {
 #new-form *,
 #update-course-form *,
 #new-review-form *,
+#edit-review-form *,
 #comments-form * {
   font-size: 20px;
   padding: 5px;
@@ -221,12 +225,14 @@ p {
 
 #comments-form button:hover,
 #new-review-form button:hover,
+#edit-review-form button:hover,
 #update-course-form button:hover,
 #new-form button:hover {
   background-color: green;
 }
 
 #new-review-form button,
+#edit-review-form button,
 #update-course-form button,
 #new-form button {
   grid-column: span 2;

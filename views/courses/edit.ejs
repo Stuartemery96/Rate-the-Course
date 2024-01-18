@@ -1,5 +1,5 @@
 <%- include('../partials/header'); %>
-
+<br><br>
 <form id="update-course-form" action="/courses/<%= course._id %>?_method=PUT" method="POST">
   <label>Course Name:</label>
   <input type="text" name="name" value="<%= course.name %>" required><br>

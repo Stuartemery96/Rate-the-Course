@@ -6,6 +6,7 @@
 <% c.reviews.forEach(function(r) { %>
 <% total +=r.overallRating %>
 <% }) %>
+<br>
 <section class="course-info" id="courses-home-page">
   <a class="more-details" href="/courses/<%= c._id %>">
     <img src="<%= c.image %>">

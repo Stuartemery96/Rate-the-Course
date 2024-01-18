@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+<br><br>
 <form id="edit-review-form" action="/reviews/<%= review._id %>?_method=PUT" method="POST">
   <label>Review:</label>
   <textarea name="content"><%= review.content %></textarea><br>
