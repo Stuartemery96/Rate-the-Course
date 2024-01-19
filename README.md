@@ -18,3 +18,6 @@ A social app for golf lovers to explore courses and read about others experience
 
 [Click to explore Rate the Course!](https://rate-the-course-2024-d5349d989952.herokuapp.com/)
 
+# Next Steps
+
+- None at this time.
