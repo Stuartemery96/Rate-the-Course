@@ -139,8 +139,7 @@ p {
   align-self: center;
 }
 
-.course-info .more-details #location,
-.course-info .more-details h2 {
+.course-info .more-details #location {
   grid-column: 2;
   grid-row-start: 3;
   grid-row-end: 3;
@@ -155,6 +154,10 @@ p {
 
 .course-info .more-details h2 {
   margin-top: 0;
+  grid-column: 1/4;
+  justify-self: center;
+  grid-row-start: 3;
+  grid-row-end: 3;
 }
 
 .course-info #edit {
