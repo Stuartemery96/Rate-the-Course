@@ -45,14 +45,10 @@ async function edit(req, res) {
 }
 
 async function update(req, res) {
-  // Note the cool "dot" syntax to query on the property of a subdoc
   const course = await Course.findOne({ 'reviews._id': req.params.reviewId });
-  // Find the review subdoc using the id method on Mongoose arrays
-  // https://mongoosejs.com/docs/subdocs.html
   const reviewSubdoc = course.reviews.id(req.params.reviewId);
-  // Ensure that the review was created by the logged in user
+
   if (!reviewSubdoc.user.equals(req.user._id)) return res.redirect(`/courses/${course._id}`);
-  // Update the text of the review
   reviewSubdoc.content = req.body.content;
   reviewSubdoc.overallRating = req.body.overallRating;
   reviewSubdoc.difficulty = req.body.difficulty;
@@ -60,10 +56,9 @@ async function update(req, res) {
   reviewSubdoc.image = req.body.image;
   try {
     await course.save();
-  } catch (e) {
-    console.log(e.message);
+  } catch (err) {
+    console.log(err.message);
   }
-  // Redirect back to the book's show view
   res.redirect(`/courses/${course._id}`);
 }
 
